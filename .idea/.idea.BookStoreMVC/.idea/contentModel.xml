@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\99455\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\99455\.Rider2019.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\99455\.Rider2019.3\config\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\99455\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\99455\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_BookStoreMVC.537648301.00" t="ExcludeRecursive" />
+    <e p="C:\Users\99455\RiderProjects\BookStoreMVC" t="IncludeFlat">
+      <e p="BookStoreMVC" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="BookStoreMVC.csproj" t="IncludeRecursive" />
+        <e p="Controllers" t="Include" />
+        <e p="Models" t="Include">
+          <e p="ErrorViewModel.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="BookStoreMVC.AssemblyInfo.cs" t="Include" />
+              <e p="BookStoreMVC.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="Views" t="Include">
+          <e p="_ViewImports.cshtml" t="Include" />
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Shared" t="Include">
+            <e p="_Layout.cshtml" t="Include" />
+            <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+          </e>
+        </e>
+        <e p="wwwroot" t="Include" />
+      </e>
+      <e p="BookStoreMVC.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
