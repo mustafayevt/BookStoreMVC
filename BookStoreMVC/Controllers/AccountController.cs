@@ -87,7 +87,7 @@ namespace BookStoreMVC.Controllers
         
         //register
         [HttpGet] 
-        // [AllowAnonymous]
+        [AllowAnonymous]
         [Route("Register")]
         public async Task<IActionResult> Register()
         {
