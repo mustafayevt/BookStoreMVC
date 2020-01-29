@@ -58,28 +58,29 @@ namespace BookStoreMVC.Services
 
         // todo: logout
 
-        public async Task<User> Register(RegisterViewModel registerViewModel)
+        public async Task<CustomErrorCodes.AccountErrors> Register(RegisterViewModel registerViewModel)
         {
             try
             {
+                var userExists = await _userManager.FindByEmailAsync(registerViewModel.Email);
+                if (userExists != null) return CustomErrorCodes.AccountErrors.EmailAlreadyExists;
+                
                 var RegisterUser = registerViewModel.ToUser();
                 var userCreateResult = await _userManager.CreateAsync(RegisterUser,registerViewModel.Password);
 
                 if (userCreateResult.Succeeded)
                 {
                     var user = await _userManager.FindByEmailAsync(registerViewModel.Email);
-                        return user;
+                    await _signInManager.SignInAsync(user, new AuthenticationProperties());
+                    return CustomErrorCodes.AccountErrors.Ok;
                 }
+                return CustomErrorCodes.AccountErrors.CantCreate;
             }
             catch (Exception e)
             {
+                return CustomErrorCodes.AccountErrors.Exception;
             }
-
-            return null;
         }
 
-        private void Init()
-        {
-        }
     }
 }
