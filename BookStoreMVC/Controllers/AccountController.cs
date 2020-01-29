@@ -105,7 +105,16 @@ namespace BookStoreMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                var registerResult = _accountService.Register(model).Result;
+                if (registerResult == CustomErrorCodes.AccountErrors.Ok)
+                {
+                    return Redirect("/");
+                }
+                else if (registerResult == CustomErrorCodes.AccountErrors.EmailAlreadyExists)
+                {
+                    ModelState.AddModelError("EmailAlreadyExists","Bu email artiq qeydiyyatdan kecib!");
+                }
+
             }
             
             // If we got this far, something failed, redisplay form

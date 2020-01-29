@@ -14,113 +14,54 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" asp-action="Register">
+                                <div asp-validation-summary="All" class="text-danger"></div>
                                     <fieldset>
-                                        <div class="form-group row required">
-                                            <label class="col-md-4 control-label">You are a <sup>*</sup></label>
+                                        <!-- Text input-->
+                                        <div class="form-group  row required">
+                                            <label class="col-md-4 control-label" for="firstName">First Name <sup>*</sup></label>
 
                                             <div class="col-md-6">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios1"
-                                                               value="option1" checked>
-                                                        Professional </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios2"
-                                                               value="option2">
-                                                        Individual </label>
-                                                </div>
+                                                <input placeholder="First Name" class="form-control input-md"
+                                                       required="" type="text" asp-for="Name" id="firstName">
                                             </div>
                                         </div>
 
                                         <!-- Text input-->
                                         <div class="form-group  row required">
-                                            <label class="col-md-4 control-label">First Name <sup>*</sup></label>
+                                            <label class="col-md-4 control-label" for="lastName">Last Name <sup>*</sup></label>
 
                                             <div class="col-md-6">
-                                                <input name="" placeholder="First Name" class="form-control input-md"
-                                                       required="" type="text">
+                                                <input placeholder="Last Name" id="lastName"
+                                                       class="form-control input-md" type="text" asp-for="Surname">
                                             </div>
                                         </div>
 
                                         <!-- Text input-->
                                         <div class="form-group  row required">
-                                            <label class="col-md-4 control-label">Last Name <sup>*</sup></label>
+                                            <label for="phoneNumber" class="col-md-4 control-label">Phone Number <sup>*</sup></label>
 
                                             <div class="col-md-6">
-                                                <input name="textinput" placeholder="Last Name"
-                                                       class="form-control input-md" type="text">
+                                                <input placeholder="Phone Number" id="phoneNumber"
+                                                       class="form-control input-md" type="text" asp-for="PhoneNumber">
                                             </div>
                                         </div>
 
-                                        <!-- Text input-->
-                                        <div class="form-group  row required">
-                                            <label class="col-md-4 control-label">Phone Number <sup>*</sup></label>
-
-                                            <div class="col-md-6">
-                                                <input name="textinput" placeholder="Phone Number"
-                                                       class="form-control input-md" type="text">
-
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">
-                                                        <small> Hide the phone number on the published ads.</small>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Multiple Radios -->
-                                        <div class="form-group row">
-                                            <label class="col-md-4 control-label">Gender</label>
-
-                                            <div class="col-md-6">
-                                                <div class="radio">
-                                                    <label for="Gender-0">
-                                                        <input name="Gender" id="Gender-0" value="1" checked="checked"
-                                                               type="radio">
-                                                        Male </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="Gender-1">
-                                                        <input name="Gender" id="Gender-1" value="2" type="radio">
-                                                        Female </label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Textarea -->
-                                        <div class="form-group row">
-                                            <label class="col-md-4 control-label" for="textarea">About Yourself</label>
-
-                                            <div class="col-md-6">
-                                                <textarea class="form-control" id="textarea" name="textarea">About Yourself</textarea>
-                                            </div>
-                                        </div>
                                         <div class="form-group  row required">
                                             <label for="inputEmail3" class="col-md-4 control-label">Email
                                                 <sup>*</sup></label>
 
                                             <div class="col-md-6">
                                                 <input type="email" class="form-control" id="inputEmail3"
-                                                       placeholder="Email">
+                                                       placeholder="Email" asp-for="Email">
                                             </div>
                                         </div>
                                         <div class="form-group  row required">
-                                            <label for="inputPassword3" class="col-md-4 control-label">Password </label>
+                                            <label for="inputPassword3" class="col-md-4 control-label">Password <sup>*</sup></label>
 
                                             <div class="col-md-6">
                                                 <input type="password" class="form-control" id="inputPassword3"
-                                                       placeholder="Password">
-
-
-                                                    <small id="passwordHelpBlock" class="form-text text-muted">
-
-
-                                                    At least 5 characters
-                                                        </small>
+                                                       placeholder="Password" asp-for="Password">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -138,7 +79,10 @@
 
                                                 </div>
                                                 <div style="clear:both"></div>
-                                                <a class="btn btn-primary" href="account-home.html">Register</a></div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-primary  btn-block">Register</button>
+                                                </div>
+                                                </div>
                                         </div>
                                     </fieldset>
                                 </form>

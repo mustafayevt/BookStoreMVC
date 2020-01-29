@@ -66,6 +66,7 @@ namespace BookStoreMVC.Services
                 if (userExists != null) return CustomErrorCodes.AccountErrors.EmailAlreadyExists;
                 
                 var RegisterUser = registerViewModel.ToUser();
+                RegisterUser.UserName = RegisterUser.Email;
                 var userCreateResult = await _userManager.CreateAsync(RegisterUser,registerViewModel.Password);
 
                 if (userCreateResult.Succeeded)
