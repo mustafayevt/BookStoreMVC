@@ -101,7 +101,7 @@ namespace BookStoreMVC.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [Route("Register")]
-        public async Task<IActionResult> Login(RegisterViewModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
