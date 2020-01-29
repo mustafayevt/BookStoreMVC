@@ -6,6 +6,7 @@ using BookStoreMVC.Data;
 using BookStoreMVC.Helper;
 using BookStoreMVC.Models;
 using BookStoreMVC.Models.ViewModels;
+using BookStoreMVC.Models.ViewModels.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;

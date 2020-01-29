@@ -1,4 +1,4 @@
-﻿@model BookStoreMVC.Models.ViewModels.RegisterViewModel
+﻿@model BookStoreMVC.Models.ViewModels.Account.RegisterViewModel
 
 @{
     ViewBag.Title = "Bizə Qatılın";
@@ -15,25 +15,26 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <form class="form-horizontal" asp-action="Register">
-                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div asp-validation-summary="All"  class="text-danger"></div>
                                     <fieldset>
                                         <!-- Text input-->
                                         <div class="form-group  row required">
-                                            <label class="col-md-4 control-label" for="firstName">First Name <sup>*</sup></label>
+                                            <label class="col-md-4 control-label" for="firstName">Ad <sup>*</sup></label>
 
                                             <div class="col-md-6">
-                                                <input placeholder="First Name" class="form-control input-md"
+                                                <input placeholder="Ad" class="form-control input-md"
                                                        required="" type="text" asp-for="Name" id="firstName">
                                             </div>
                                         </div>
 
                                         <!-- Text input-->
                                         <div class="form-group  row required">
-                                            <label class="col-md-4 control-label" for="lastName">Last Name <sup>*</sup></label>
+                                            <label class="col-md-4 control-label" for="lastName">Soyad <sup>*</sup></label>
 
                                             <div class="col-md-6">
-                                                <input placeholder="Last Name" id="lastName"
+                                                <input placeholder="Soyad" id="lastName"
                                                        class="form-control input-md" type="text" asp-for="Surname">
+
                                             </div>
                                         </div>
 
@@ -44,6 +45,7 @@
                                             <div class="col-md-6">
                                                 <input placeholder="Phone Number" id="phoneNumber"
                                                        class="form-control input-md" type="text" asp-for="PhoneNumber">
+
                                             </div>
                                         </div>
 
@@ -54,6 +56,7 @@
                                             <div class="col-md-6">
                                                 <input type="email" class="form-control" id="inputEmail3"
                                                        placeholder="Email" asp-for="Email">
+
                                             </div>
                                         </div>
                                         <div class="form-group  row required">
@@ -62,6 +65,7 @@
                                             <div class="col-md-6">
                                                 <input type="password" class="form-control" id="inputPassword3"
                                                        placeholder="Password" asp-for="Password">
+
                                             </div>
                                         </div>
                                         <div class="form-group row">

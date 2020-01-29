@@ -1,8 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using BookStoreMVC.Data;
 using BookStoreMVC.Helper;
 using BookStoreMVC.Models;
 using BookStoreMVC.Models.ViewModels;
+using BookStoreMVC.Models.ViewModels.Account;
 using BookStoreMVC.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -51,8 +53,8 @@ namespace BookStoreMVC.Controllers
         public async Task<IActionResult> Login()
         {
             // Clear the existing external cookie to ensure a clean login process
-            await _signInManager.SignOutAsync();
-            
+            if(_signInManager.IsSignedIn(User))
+            return RedirectToAction("SignOut");
             return View();
         }
         
@@ -112,13 +114,20 @@ namespace BookStoreMVC.Controllers
                 }
                 else if (registerResult == CustomErrorCodes.AccountErrors.EmailAlreadyExists)
                 {
-                    ModelState.AddModelError("EmailAlreadyExists","Bu email artiq qeydiyyatdan kecib!");
+                    ModelState.AddModelError("EmailAlreadyExists","Bu Email Artıq Qeydiyyatdan Keçib");
                 }
-
             }
             
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [Route("SignOut")]
+        public async Task<IActionResult> SignOut()
+        {
+                await _signInManager.SignOutAsync();
+                return RedirectToAction("Login","Account");
+            
         }
     }
 }
