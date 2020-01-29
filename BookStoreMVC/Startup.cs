@@ -62,8 +62,7 @@ namespace BookStoreMVC
                 {
                     options.ClientId = "575272670884-1m0in1jjkl59hq7utidpo3feo0agg0up.apps.googleusercontent.com";
                     options.ClientSecret = "DBocbmt-XuOecdhDBVdV3v5j";
-                })
-                .AddFacebook();
+                });
             services.AddAuthorization();
             services.AddScoped<AccountService>();
         }
@@ -82,6 +81,7 @@ namespace BookStoreMVC
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
             app.UseStatusCodePages();
             app.UseHttpsRedirection();
             app.UseStaticFiles();

@@ -51,7 +51,7 @@ namespace BookStoreMVC.Controllers
         public async Task<IActionResult> Login()
         {
             // Clear the existing external cookie to ensure a clean login process
-            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+            await _signInManager.SignOutAsync();
             
             return View();
         }
@@ -67,7 +67,7 @@ namespace BookStoreMVC.Controllers
                 var loginResult = _accountService.Login(model).Result;
                 if (loginResult == CustomErrorCodes.AccountErrors.Ok)
                 {
-                    return RedirectToRoute("/");
+                    return Redirect("/");
                 }
                 else if (loginResult == CustomErrorCodes.AccountErrors.UserNotFound)
                 {
