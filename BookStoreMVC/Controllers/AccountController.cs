@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.Extensions.Logging;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
@@ -44,10 +45,10 @@ namespace BookStoreMVC.Controllers
             _roleManager = roleManager;
         }
         
-        [HttpGet]
+        [HttpGet] 
         [AllowAnonymous]
         [Route("Login")]
-        public async Task<IActionResult> Login(string returnUrl = null)
+        public async Task<IActionResult> Login()
         {
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
@@ -58,6 +59,7 @@ namespace BookStoreMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Route("Login")]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
@@ -65,18 +67,47 @@ namespace BookStoreMVC.Controllers
                 var loginResult = _accountService.Login(model).Result;
                 if (loginResult == CustomErrorCodes.AccountErrors.Ok)
                 {
-                    return RedirectToPage("/");
+                    return RedirectToRoute("/");
                 }
                 else if (loginResult == CustomErrorCodes.AccountErrors.UserNotFound)
                 {
-                    ViewBag["error"] = "İstifadəçi Tapılmadı";
+                    ModelState.AddModelError("UserNotFound","İstifadəçi Tapılmadı");
                 }
                 else if (loginResult == CustomErrorCodes.AccountErrors.PasswordIsWrong)
                 {
-                    ViewBag["error"] = "Şifrə Yalnışdır";
+                    ModelState.AddModelError("WrongPassword","Şifrə Yalnışdır");
+
                 }
             }
-
+            
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+        
+        
+        //register
+        [HttpGet] 
+        // [AllowAnonymous]
+        [Route("Register")]
+        public async Task<IActionResult> Register()
+        {
+            // Clear the existing external cookie to ensure a clean login process
+            //await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+            
+            return View();
+        }
+        
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [Route("Register")]
+        public async Task<IActionResult> Login(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                
+            }
+            
             // If we got this far, something failed, redisplay form
             return View(model);
         }

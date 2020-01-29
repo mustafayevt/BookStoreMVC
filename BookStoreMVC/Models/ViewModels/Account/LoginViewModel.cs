@@ -4,11 +4,11 @@ namespace BookStoreMVC.Models.ViewModels
 {
     public class LoginViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "'Email' xanası boş qala bilməz")]
+        [EmailAddress(ErrorMessage = "Email formatı düzgün deyil")]
         [Display(Name = "Email")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "'Şifrə' xanası boş qala bilməz")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }

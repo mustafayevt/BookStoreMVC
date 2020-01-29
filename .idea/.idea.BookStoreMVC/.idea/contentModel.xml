@@ -59,6 +59,7 @@
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Account" t="Include">
             <e p="Login.cshtml" t="Include" />
+            <e p="Register.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">
             <e p="Error.cshtml" t="Include" />
