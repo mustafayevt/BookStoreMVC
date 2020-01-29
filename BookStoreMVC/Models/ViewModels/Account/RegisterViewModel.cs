@@ -9,8 +9,6 @@ namespace BookStoreMVC.Models.ViewModels
         [Required]
         public string Surname { get; set; }
         [Required]
-        public string Username { get; set; }
-        [Required]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
         [Required]
@@ -28,7 +26,6 @@ namespace BookStoreMVC.Models.ViewModels
             user.Email = Email;
             user.Name = Name;
             user.Surname = Surname;
-            user.UserName = Username;
             user.PhoneNumber = PhoneNumber;
 
             return user;
