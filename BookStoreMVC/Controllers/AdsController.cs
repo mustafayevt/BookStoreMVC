@@ -47,7 +47,7 @@ namespace BookStoreMVC.Controllers
         }
         [HttpPost]
         [Route("PostAd")]
-        public IActionResult PostAd(PostAdViewModel model,IFormFile[] images)
+        public IActionResult PostAd(PostAdViewModel model)
         {
             return null;
         }

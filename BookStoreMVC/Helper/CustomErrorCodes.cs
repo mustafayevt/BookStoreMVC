@@ -13,5 +13,10 @@
             EmailAlreadyExists,
             Exception
         }
+
+        public enum AdErrors
+        {
+            Ok
+        }
     }
 }

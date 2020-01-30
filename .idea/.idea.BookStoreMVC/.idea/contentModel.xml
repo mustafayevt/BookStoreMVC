@@ -73,6 +73,7 @@
         </e>
         <e p="Services" t="Include">
           <e p="AccountSerevice.cs" t="Include" />
+          <e p="AdService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
