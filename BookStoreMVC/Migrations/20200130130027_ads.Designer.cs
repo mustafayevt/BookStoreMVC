@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using BookStoreMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace BookStoreMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200130130027_ads")]
+    partial class ads
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace BookStoreMVC.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<List<int>>("GenresIds");
+                    b.Property<int>("GenreId");
 
                     b.Property<List<string>>("ImagePaths");
 
@@ -42,6 +44,8 @@ namespace BookStoreMVC.Migrations
                     b.Property<int>("UserId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("GenreId");
 
                     b.HasIndex("UserId");
 
@@ -222,6 +226,11 @@ namespace BookStoreMVC.Migrations
 
             modelBuilder.Entity("BookStoreMVC.Models.Ad", b =>
                 {
+                    b.HasOne("BookStoreMVC.Models.Genre", "Genre")
+                        .WithMany()
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("BookStoreMVC.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")

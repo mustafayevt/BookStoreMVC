@@ -130,7 +130,7 @@
                     }
                     
                     <li class="postadd nav-item">
-                        <a class="btn btn-block   btn-border btn-post btn-danger nav-link" asp-controller="Account" asp-action="Login">Kitab Sat</a>
+                        <a class="btn btn-block   btn-border btn-post btn-danger nav-link" asp-controller="Ads" asp-action="PostAd">Kitab Sat</a>
                     </li>
                     @* <li class="dropdown  lang-menu nav-item"> *@
                     @*     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> *@
@@ -180,7 +180,7 @@
     </nav>
 </div>
 
-<label class="theme-switcher theme-switcher-left-right @(@Context.Request.Cookies["theme"] =="dark" ? "active" : "")" id="dark-label" >
+<label class="theme-switcher  @(@Context.Request.Cookies["theme"] =="dark" ? "active" : "")" id="dark-label" >
         	<span class="theme-switcher-label" data-on="Dark Off" data-off="Dark Mode" ></span>
         	<span class="theme-switcher-handle"></span>
         </label>
@@ -194,7 +194,13 @@
 
 <!-- include custom script for site  -->
 <script src="~/assets/js/main.min.js"></script>
+<script src="~/assets/js/fileinput.min.js" type="text/javascript"></script>
 <script>
+    // initialize with defaults
+    $(".file").fileinput();
+</script>
+<script>
+
 $(document).ready(function(){
     // var theme = Cookies.get('theme');
     // if(theme === 'dark'){

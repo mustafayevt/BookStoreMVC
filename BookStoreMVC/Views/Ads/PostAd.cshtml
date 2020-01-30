@@ -1,0 +1,178 @@
+﻿@model BookStoreMVC.Models.ViewModels.Ad.PostAdViewModel
+
+@{
+    Layout = "_Layout";
+}
+<div class="main-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 page-content">
+                    <div class="inner-box category-content">
+                        <h2 class="title-2 uppercase"><strong> <i class="icon-docs"></i>Pulsuz Elan Yerləşdir</strong></h2>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <form class="form-horizontal" asp-controller="Ads" asp-action="PostAd">
+
+                                    <div class="form-group row">
+                                        <label  class="col-sm-3 col-form-label">Category</label>
+                                        <div class="col-sm-8">
+                                            <select name="category-group" id="category-group" class="form-control">
+                                                <option value="0" selected="selected"> Select a category...</option>
+                                                <option value="Vehicles"
+                                                        style="background-color:#E9E9E9;font-weight:bold;"
+                                                        disabled="disabled"> - Vehicles -
+                                                </option>
+                                                <option value="Cars"> Cars</option>
+                                                <option value="Commercial vehicles"> Commercial vehicles</option>
+                                                <option value="Motorcycles"> Motorcycles</option>
+                                                <option value="Motorcycle Equipment"> Car &amp; Motorcycle
+                                                    Equipment
+                                                </option>
+                                                <option value="Boats"> Boats</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-3 col-form-label">Add Type</label>
+                                        <div class="col-sm-8">
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Private
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Business
+                                                </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label  class="col-sm-3 col-form-label">Ad title</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="Adtitle" placeholder="Ad title">
+                                            <small id="" class="form-text text-muted">
+                                                A great title needs at least 60 characters
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label  class="col-sm-3 col-form-label">Describe ad</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" name="textarea" rows="3">Describe what makes your ad unique</textarea>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label  class="col-sm-3 col-form-label">Price</label>
+
+                                        <div class="input-group col-sm-8">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">₼</span>
+                                            </div>
+                                            <input type="text" min="0" id="Price" class="form-control" aria-label="Amount (to the nearest azn)">
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label" for="textarea">Picture</label>
+                                        <div class="col-lg-8">
+                                            <div class="mb10">
+                                                <input id="input-upload-img1" accept="image/*"  type="file" class="file" data-preview-file-type="text">
+                                            </div>
+                                            <div class="mb10">
+                                                <input id="input-upload-img2" accept="image/*"  type="file" class="file" data-preview-file-type="text">
+                                            </div>
+                                            <div class="mb10">
+                                                <input id="input-upload-img3" accept="image/*" aaccept="image/*"  type="file" class="file" data-preview-file-type="text">
+                                            </div>
+                                            <p  class="form-text text-muted">
+                                                Minimum 1 şəkil yükləyin. Məhsulun vəziyyətini bildirəcək şəkillərini yükləyin.
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!-- Button  -->
+                                    <div class="form-group row">
+
+                                        <div class="col-sm-8"><a href="posting-success.html" id="button1id"
+                                                                 class="btn btn-success btn-lg">Submit</a></div>
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.page-content -->
+
+                <div class="col-md-3 reg-sidebar">
+                    <div class="reg-sidebar-inner text-center">
+                        <div class="promo-text-box"><i class=" icon-picture fa fa-4x icon-color-1"></i>
+
+                            <h3><strong>Kitabını Bizimlə Bölüş</strong></h3>
+
+                            <p> Sayt tam pulsuzdur</p>
+                        </div>
+
+                        <div class="card sidebar-card">
+                            <div class="card-header uppercase">
+                                <small><strong>Necə Daha Sürətli Satış Etmək Olar?</strong></small>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body text-left">
+                                    <ul class="list-check">
+                                        <li> Elanınızın Haqqında Hissəsini Doldurarkən Cəsur Olun</li>
+                                        <li> Make sure you post in the correct category</li>
+                                        <li> Add nice photos to your ad</li>
+                                        <li> Put a reasonable price</li>
+                                        <li> Check the item before publish</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!--/.reg-sidebar-->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+<!-- /.main-container -->
+
+<script>
+function setInputFilter(textbox, inputFilter) {
+  ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+    textbox.addEventListener(event, function() {
+      if (inputFilter(this.value)) {
+        this.oldValue = this.value;
+        this.oldSelectionStart = this.selectionStart;
+        this.oldSelectionEnd = this.selectionEnd;
+      } else if (this.hasOwnProperty("oldValue")) {
+        this.value = this.oldValue;
+        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+      } else {
+        this.value = "";
+      }
+    });
+  });
+}
+setInputFilter(document.getElementById("Price"), function(value) {
+  return /^-?\d*[.,]?\d{0,2}$/.test(value); });
+</script>

@@ -8,33 +8,54 @@
     <e p="C:\Users\99455\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_BookStoreMVC.537648301.00" t="ExcludeRecursive" />
     <e p="C:\Users\99455\RiderProjects\BookStoreMVC" t="IncludeFlat">
       <e p="BookStoreMVC" t="IncludeRecursive">
+        <e p=".vs" t="Include">
+          <e p="BookStoreMVC" t="Include">
+            <e p="v16" t="Include">
+              <e p=".suo" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="BookStoreMVC.csproj" t="IncludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="AccountController.cs" t="Include" />
+          <e p="AdsController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
         </e>
         <e p="Data" t="Include">
           <e p="AppDbContext.cs" t="Include" />
         </e>
         <e p="Helper" t="Include">
+          <e p="AdOptions.cs" t="Include" />
           <e p="CustomErrorCodes.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
           <e p="20200128211008_init.cs" t="Include" />
           <e p="20200128211008_init.Designer.cs" t="Include" />
+          <e p="20200130130027_ads.cs" t="Include" />
+          <e p="20200130130027_ads.Designer.cs" t="Include" />
+          <e p="20200130130817_ads1.cs" t="Include" />
+          <e p="20200130130817_ads1.Designer.cs" t="Include" />
+          <e p="20200130131154_ads2.cs" t="Include" />
+          <e p="20200130131154_ads2.Designer.cs" t="Include" />
+          <e p="20200130131227_ads3.cs" t="Include" />
+          <e p="20200130131227_ads3.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
+          <e p="Ad.cs" t="Include" />
           <e p="ErrorViewModel.cs" t="Include" />
-          <e p="Role.cs" t="Include" />
+          <e p="Genre.cs" t="Include" />
           <e p="User.cs" t="Include" />
           <e p="ViewModels" t="Include">
             <e p="Account" t="Include">
               <e p="LoginViewModel.cs" t="Include" />
               <e p="RegisterViewModel.cs" t="Include" />
+            </e>
+            <e p="Ad" t="Include">
+              <e p="PostAdViewModel.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -59,7 +80,11 @@
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Account" t="Include">
             <e p="Login.cshtml" t="Include" />
+            <e p="Profile.cshtml" t="Include" />
             <e p="Register.cshtml" t="Include" />
+          </e>
+          <e p="Ads" t="Include">
+            <e p="PostAd.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">
             <e p="Error.cshtml" t="Include" />

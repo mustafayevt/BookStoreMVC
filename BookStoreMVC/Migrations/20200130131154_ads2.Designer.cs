@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using BookStoreMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace BookStoreMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200130131154_ads2")]
+    partial class ads2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace BookStoreMVC.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<List<int>>("GenresIds");
+                    b.Property<List<int>>("GenresId");
 
                     b.Property<List<string>>("ImagePaths");
 

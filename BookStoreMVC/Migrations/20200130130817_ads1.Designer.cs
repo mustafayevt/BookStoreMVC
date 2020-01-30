@@ -4,15 +4,17 @@ using System.Collections.Generic;
 using BookStoreMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace BookStoreMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200130130817_ads1")]
+    partial class ads1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,8 +30,6 @@ namespace BookStoreMVC.Migrations
                     b.Property<int>("Conditions");
 
                     b.Property<string>("Description");
-
-                    b.Property<List<int>>("GenresIds");
 
                     b.Property<List<string>>("ImagePaths");
 
@@ -53,11 +53,15 @@ namespace BookStoreMVC.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("AdId");
+
                     b.Property<string>("Name");
 
                     b.Property<int>("ParentId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdId");
 
                     b.ToTable("Genres");
                 });
@@ -226,6 +230,13 @@ namespace BookStoreMVC.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BookStoreMVC.Models.Genre", b =>
+                {
+                    b.HasOne("BookStoreMVC.Models.Ad")
+                        .WithMany("Genres")
+                        .HasForeignKey("AdId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

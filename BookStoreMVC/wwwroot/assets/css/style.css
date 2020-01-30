@@ -8204,7 +8204,7 @@ html[theme="dark"] .mobile-filter-bar .dropdown-menu > li a {
        box-sizing: content-box; }
   @media (max-width: 767px) {
     .theme-switcher {
-      display: none; } }
+      } }
 
 .theme-switcher-label {
   position: relative;
