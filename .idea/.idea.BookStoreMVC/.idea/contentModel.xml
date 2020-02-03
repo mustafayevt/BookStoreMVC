@@ -28,8 +28,7 @@
           <e p="AppDbContext.cs" t="Include" />
         </e>
         <e p="Helper" t="Include">
-          <e p="AdOptions.cs" t="Include" />
-          <e p="CustomErrorCodes.cs" t="Include" />
+          <e p="MaxFileSizeAttribute.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
           <e p="20200128211008_init.cs" t="Include" />
@@ -46,7 +45,8 @@
         </e>
         <e p="Models" t="Include">
           <e p="Ad.cs" t="Include" />
-          <e p="ErrorViewModel.cs" t="Include" />
+          <e p="AdOptions.cs" t="Include" />
+          <e p="CustomErrorCodes.cs" t="Include" />
           <e p="Genre.cs" t="Include" />
           <e p="User.cs" t="Include" />
           <e p="ViewModels" t="Include">

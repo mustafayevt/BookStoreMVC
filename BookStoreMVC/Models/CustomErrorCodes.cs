@@ -16,7 +16,9 @@
 
         public enum AdErrors
         {
-            Ok
+            Ok,
+            FileSizeIsBig,
+            FileTypeError
         }
     }
 }

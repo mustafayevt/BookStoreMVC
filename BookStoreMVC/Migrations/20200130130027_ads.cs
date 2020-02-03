@@ -9,14 +9,14 @@ namespace BookStoreMVC.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Genres_Genres_ParentId",
-                table: "Genres");
+                table: "Genreses");
 
             migrationBuilder.DropTable(
                 name: "UserAds");
 
             migrationBuilder.DropIndex(
                 name: "IX_Genres_ParentId",
-                table: "Genres");
+                table: "Genreses");
 
             migrationBuilder.AddColumn<int>(
                 name: "UserId",
@@ -80,7 +80,7 @@ namespace BookStoreMVC.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Genres_ParentId",
-                table: "Genres",
+                table: "Genreses",
                 column: "ParentId");
 
             migrationBuilder.CreateIndex(
@@ -95,9 +95,9 @@ namespace BookStoreMVC.Migrations
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Genres_Genres_ParentId",
-                table: "Genres",
+                table: "Genreses",
                 column: "ParentId",
-                principalTable: "Genres",
+                principalTable: "Genreses",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }

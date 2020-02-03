@@ -20,17 +20,17 @@ namespace BookStoreMVC.Migrations
 
             migrationBuilder.AddColumn<int>(
                 name: "AdId",
-                table: "Genres",
+                table: "Genreses",
                 nullable: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Genres_AdId",
-                table: "Genres",
+                table: "Genreses",
                 column: "AdId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Genres_Ads_AdId",
-                table: "Genres",
+                table: "Genreses",
                 column: "AdId",
                 principalTable: "Ads",
                 principalColumn: "Id",
@@ -41,15 +41,15 @@ namespace BookStoreMVC.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Genres_Ads_AdId",
-                table: "Genres");
+                table: "Genreses");
 
             migrationBuilder.DropIndex(
                 name: "IX_Genres_AdId",
-                table: "Genres");
+                table: "Genreses");
 
             migrationBuilder.DropColumn(
                 name: "AdId",
-                table: "Genres");
+                table: "Genreses");
 
             migrationBuilder.AddColumn<int>(
                 name: "GenreId",
@@ -66,7 +66,7 @@ namespace BookStoreMVC.Migrations
                 name: "FK_Ads_Genres_GenreId",
                 table: "Ads",
                 column: "GenreId",
-                principalTable: "Genres",
+                principalTable: "Genreses",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }

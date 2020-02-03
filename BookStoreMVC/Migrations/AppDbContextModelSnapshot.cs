@@ -37,7 +37,7 @@ namespace BookStoreMVC.Migrations
 
                     b.Property<int>("SellOption");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Name");
 
                     b.Property<int>("UserId");
 
@@ -59,7 +59,7 @@ namespace BookStoreMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres");
+                    b.ToTable("Genreses");
                 });
 
             modelBuilder.Entity("BookStoreMVC.Models.User", b =>

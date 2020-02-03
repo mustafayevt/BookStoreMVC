@@ -65,6 +65,7 @@ namespace BookStoreMVC
                 });
             services.AddAuthorization();
             services.AddScoped<AccountService>();
+            services.AddScoped<AdService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

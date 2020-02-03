@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using BookStoreMVC.Data;
 using BookStoreMVC.Helper;
 using BookStoreMVC.Models;
@@ -31,8 +32,28 @@ namespace BookStoreMVC.Services
         }
 
 
-        public async Task<CustomErrorCodes.AdErrors> PostAd(PostAdViewModel postAdViewModel)
+        public async Task<CustomErrorCodes.AdErrors> PostAd(PostAdViewModel postAdViewModel, User user)
         {
+            var images = postAdViewModel.Images.ToList();
+            foreach (var image in images)
+            {
+                if (!image.ContentType.Contains("image")) return CustomErrorCodes.AdErrors.FileTypeError;
+                if (image.Length >= 3000000 ) return CustomErrorCodes.AdErrors.FileSizeIsBig;
+                
+                var optimizer = new ImageOptimizer();
+                optimizer.Compress(file);
+            }
+            
+            var book = new Ad();
+            book.Author = postAdViewModel.Author;
+            book.Conditions = postAdViewModel.AdCondition;
+            book.Description = postAdViewModel.Description;
+            book.Name = postAdViewModel.Name;
+            book.Price = postAdViewModel.Price;
+            book.User = user;
+            book.GenresIds = postAdViewModel.SelectedGenres;
+            book.SellOption = postAdViewModel.SellOption;
+            book.UserId = user.Id;
             return CustomErrorCodes.AdErrors.Ok;
         }
     }
