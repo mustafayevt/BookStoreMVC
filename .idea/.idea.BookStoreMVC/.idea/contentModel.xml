@@ -8,13 +8,6 @@
     <e p="C:\Users\99455\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_BookStoreMVC.537648301.00" t="ExcludeRecursive" />
     <e p="C:\Users\99455\RiderProjects\BookStoreMVC" t="IncludeFlat">
       <e p="BookStoreMVC" t="IncludeRecursive">
-        <e p=".vs" t="Include">
-          <e p="BookStoreMVC" t="Include">
-            <e p="v16" t="Include">
-              <e p=".suo" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
@@ -27,9 +20,7 @@
         <e p="Data" t="Include">
           <e p="AppDbContext.cs" t="Include" />
         </e>
-        <e p="Helper" t="Include">
-          <e p="MaxFileSizeAttribute.cs" t="Include" />
-        </e>
+        <e p="Helper" t="Include" />
         <e p="Migrations" t="Include">
           <e p="20200128211008_init.cs" t="Include" />
           <e p="20200128211008_init.Designer.cs" t="Include" />
@@ -726,6 +717,7 @@
               </e>
             </e>
           </e>
+          <e p="BookImages" t="Include" />
           <e p="images" t="Include">
             <e p="10x6.gif" t="Include" />
             <e p="3x1.gif" t="Include" />

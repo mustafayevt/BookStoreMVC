@@ -40,6 +40,8 @@ namespace BookStoreMVC.Models.ViewModels.Ad
         [Required(ErrorMessage = "Janr Seçilməyib")]
         public List<int> SelectedGenres { get; set; }
 
+        public List<string> imagePaths { get; set; }
+
         public void GetGenres(AppDbContext _appDbContext)
         {
             Genres = new List<SelectListItem>();
