@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BookStoreMVC.Helper;
 
 namespace BookStoreMVC.Models
@@ -16,5 +17,7 @@ namespace BookStoreMVC.Models
         public AdOptions.SellOption SellOption { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public bool IsActive { get; set; }
+        public DateTime UploadTime { get; set; }
     }
 }

@@ -25,6 +25,8 @@ namespace BookStoreMVC.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Author");
+
                     b.Property<int>("Conditions");
 
                     b.Property<string>("Description");
@@ -33,11 +35,15 @@ namespace BookStoreMVC.Migrations
 
                     b.Property<List<string>>("ImagePaths");
 
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name");
+
                     b.Property<decimal>("Price");
 
                     b.Property<int>("SellOption");
 
-                    b.Property<string>("Name");
+                    b.Property<DateTime>("UploadTime");
 
                     b.Property<int>("UserId");
 
@@ -59,7 +65,7 @@ namespace BookStoreMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genreses");
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("BookStoreMVC.Models.User", b =>

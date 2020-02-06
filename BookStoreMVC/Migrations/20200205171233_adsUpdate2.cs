@@ -2,22 +2,22 @@
 
 namespace BookStoreMVC.Migrations
 {
-    public partial class ads3 : Migration
+    public partial class adsUpdate2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "GenresId",
+            migrationBuilder.AddColumn<bool>(
+                name: "IsActive",
                 table: "Ads",
-                newName: "GenresIds");
+                nullable: false,
+                defaultValue: false);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "GenresIds",
-                table: "Ads",
-                newName: "GenresId");
+            migrationBuilder.DropColumn(
+                name: "IsActive",
+                table: "Ads");
         }
     }
 }

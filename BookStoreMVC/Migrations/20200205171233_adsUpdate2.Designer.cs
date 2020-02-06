@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BookStoreMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200130130027_ads")]
-    partial class ads
+    [Migration("20200205171233_adsUpdate2")]
+    partial class adsUpdate2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,25 +27,27 @@ namespace BookStoreMVC.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Author");
+
                     b.Property<int>("Conditions");
 
                     b.Property<string>("Description");
 
-                    b.Property<int>("GenreId");
+                    b.Property<List<int>>("GenresIds");
 
                     b.Property<List<string>>("ImagePaths");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name");
 
                     b.Property<decimal>("Price");
 
                     b.Property<int>("SellOption");
 
-                    b.Property<string>("Name");
-
                     b.Property<int>("UserId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("GenreId");
 
                     b.HasIndex("UserId");
 
@@ -63,7 +65,7 @@ namespace BookStoreMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genreses");
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("BookStoreMVC.Models.User", b =>
@@ -226,11 +228,6 @@ namespace BookStoreMVC.Migrations
 
             modelBuilder.Entity("BookStoreMVC.Models.Ad", b =>
                 {
-                    b.HasOne("BookStoreMVC.Models.Genre", "Genre")
-                        .WithMany()
-                        .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("BookStoreMVC.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")

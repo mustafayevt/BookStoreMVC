@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookStoreMVC.Services
 {
@@ -59,7 +60,6 @@ namespace BookStoreMVC.Services
             
         }
 
-        // todo: logout
 
         public async Task<CustomErrorCodes.AccountErrors> Register(RegisterViewModel registerViewModel)
         {
@@ -68,9 +68,9 @@ namespace BookStoreMVC.Services
                 var userExists = await _userManager.FindByEmailAsync(registerViewModel.Email);
                 if (userExists != null) return CustomErrorCodes.AccountErrors.EmailAlreadyExists;
                 
-                var RegisterUser = registerViewModel.ToUser();
-                RegisterUser.UserName = RegisterUser.Email;
-                var userCreateResult = await _userManager.CreateAsync(RegisterUser,registerViewModel.Password);
+                var registerUser = registerViewModel.ToUser();
+                registerUser.UserName = registerUser.Email;
+                var userCreateResult = await _userManager.CreateAsync(registerUser,registerViewModel.Password);
 
                 if (userCreateResult.Succeeded)
                 {

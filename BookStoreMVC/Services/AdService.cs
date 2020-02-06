@@ -51,6 +51,18 @@ namespace BookStoreMVC.Services
             book.GenresIds = postAdViewModel.SelectedGenres;
             book.SellOption = postAdViewModel.SellOption;
             book.UserId = user.Id;
+            book.ImagePaths = postAdViewModel.imagePaths;
+            book.UploadTime = DateTime.Now;
+            var res = _appDbContext.Ads.Add(book).Entity;
+            if (res == null)
+            {
+                foreach (var images in postAdViewModel.imagePaths)
+                {
+                    File.Delete(images);
+                }
+            }
+
+            var dbRes = _appDbContext.SaveChanges();
             return CustomErrorCodes.AdErrors.Ok;
         }
 
@@ -62,7 +74,7 @@ namespace BookStoreMVC.Services
                 foreach (var image in images)
                 {
                     if (!image.ContentType.Contains("image")) return CustomErrorCodes.AdErrors.FileTypeError;
-                    if (image.Length >= 3000000 ) return CustomErrorCodes.AdErrors.FileSizeIsBig;
+                    if (image.Length >= 4000000 ) return CustomErrorCodes.AdErrors.FileSizeIsBig;
                 }
 
                 var imagesDirectory = Path.Combine("wwwroot", "BookImages");
@@ -70,8 +82,8 @@ namespace BookStoreMVC.Services
                 postAdViewModel.imagePaths = new List<string>();
                 foreach (var image in images)
                 {
-                    postAdViewModel.imagePaths.Add(Path.Combine(imagesDirectory,Guid.NewGuid().ToString()+Path.GetExtension(image.FileName)));
-                    var path = postAdViewModel.imagePaths.Last();
+                    postAdViewModel.imagePaths.Add(Path.Combine("BookImages",Guid.NewGuid().ToString()+Path.GetExtension(image.FileName)));
+                    var path = Path.Combine("wwwroot",postAdViewModel.imagePaths.Last());
                     using (var stream = new FileStream(path, FileMode.Create))  
                     {  
                         await image.CopyToAsync(stream);  
@@ -93,6 +105,27 @@ namespace BookStoreMVC.Services
             {
                 return CustomErrorCodes.AdErrors.FileTypeError;
             }
+        }
+
+        public async Task<List<AdViewModel>> Ads(int page = 1, int res = 8)
+        {
+            var ads = _appDbContext.Ads.Skip((page - 1) * res).Take(res);
+            var result = ads.Select(x =>
+                new AdViewModel()
+                {
+                    Author = x.Author,
+                    Condition = x.Conditions,
+                    Description = x.Description,
+                    Genres = new List<Genre>(_appDbContext.Genres.Where(y=>x.GenresIds.Contains(y.Id))),
+                    Name = x.Name,
+                    Price = x.Price,
+                    User = x.User,
+                    ImagePaths = x.ImagePaths,
+                    SellOption = x.SellOption,
+                    UploadTime = x.UploadTime.ToShortDateString()
+                }
+            ).ToList();
+            return result.ToList();
         }
     }
 }

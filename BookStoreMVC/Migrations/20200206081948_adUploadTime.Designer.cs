@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BookStoreMVC.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200130131227_ads3")]
-    partial class ads3
+    [Migration("20200206081948_adUploadTime")]
+    partial class adUploadTime
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,8 @@ namespace BookStoreMVC.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Author");
+
                     b.Property<int>("Conditions");
 
                     b.Property<string>("Description");
@@ -35,11 +37,15 @@ namespace BookStoreMVC.Migrations
 
                     b.Property<List<string>>("ImagePaths");
 
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name");
+
                     b.Property<decimal>("Price");
 
                     b.Property<int>("SellOption");
 
-                    b.Property<string>("Name");
+                    b.Property<DateTime>("UploadTime");
 
                     b.Property<int>("UserId");
 
@@ -61,7 +67,7 @@ namespace BookStoreMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genreses");
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("BookStoreMVC.Models.User", b =>

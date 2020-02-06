@@ -79,12 +79,13 @@ namespace BookStoreMVC.Controllers
                 }
                 if (postAdResult == CustomErrorCodes.AdErrors.FileSizeIsBig)
                 {
-                    ModelState.AddModelError("","Şəkil Ölçüsü 3MB - Dan Artıq Ola Bilməz");
+                    ModelState.AddModelError("","Şəkil Ölçüsü 4MB - Dan Artıq Ola Bilməz");
                     model.Images = new FormFileCollection();
                     model.GetGenres(_appDbContext);
                     return View(model);
                 }
-                    return null;
+
+                return View("Successful");
             }
             else
             {

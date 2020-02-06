@@ -22,16 +22,12 @@
         </e>
         <e p="Helper" t="Include" />
         <e p="Migrations" t="Include">
-          <e p="20200128211008_init.cs" t="Include" />
-          <e p="20200128211008_init.Designer.cs" t="Include" />
-          <e p="20200130130027_ads.cs" t="Include" />
-          <e p="20200130130027_ads.Designer.cs" t="Include" />
-          <e p="20200130130817_ads1.cs" t="Include" />
-          <e p="20200130130817_ads1.Designer.cs" t="Include" />
-          <e p="20200130131154_ads2.cs" t="Include" />
-          <e p="20200130131154_ads2.Designer.cs" t="Include" />
-          <e p="20200130131227_ads3.cs" t="Include" />
-          <e p="20200130131227_ads3.Designer.cs" t="Include" />
+          <e p="20200204121303_init.cs" t="Include" />
+          <e p="20200204121303_init.Designer.cs" t="Include" />
+          <e p="20200205171233_adsUpdate2.cs" t="Include" />
+          <e p="20200205171233_adsUpdate2.Designer.cs" t="Include" />
+          <e p="20200206081948_adUploadTime.cs" t="Include" />
+          <e p="20200206081948_adUploadTime.Designer.cs" t="Include" />
           <e p="AppDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
@@ -46,6 +42,7 @@
               <e p="RegisterViewModel.cs" t="Include" />
             </e>
             <e p="Ad" t="Include">
+              <e p="AdViewModel.cs" t="Include" />
               <e p="PostAdViewModel.cs" t="Include" />
             </e>
           </e>
@@ -77,6 +74,7 @@
           </e>
           <e p="Ads" t="Include">
             <e p="PostAd.cshtml" t="Include" />
+            <e p="Successful.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">
             <e p="Error.cshtml" t="Include" />
@@ -717,7 +715,23 @@
               </e>
             </e>
           </e>
-          <e p="BookImages" t="Include" />
+          <e p="BookImages" t="Include">
+            <e p="1e236ee2-a614-42c5-be5d-34d28b380e77.jpg" t="Include" />
+            <e p="2077345f-c0c6-4306-a74b-80580aff7ef2.jpg" t="Include" />
+            <e p="26e24995-f091-4160-a9e4-ae6712aee2e3.jpg" t="Include" />
+            <e p="2989b88e-c293-4513-8101-15dc563f99e5.jpg" t="Include" />
+            <e p="3058baeb-e210-4198-b9ef-d27b872df531.jpg" t="Include" />
+            <e p="30fcfe5c-8693-4124-8ce9-3c7916f66bb4.jpg" t="Include" />
+            <e p="3ee53478-c35c-4c6e-8c58-21d25c1d9323.jpg" t="Include" />
+            <e p="470c9720-eda1-4705-a23d-fb381750ce5e.jpg" t="Include" />
+            <e p="66b0ecd0-7d90-468a-8959-a43dcf7a7ca4.jpg" t="Include" />
+            <e p="72dce3f8-2b18-417b-945a-ce1a73ba90a2.jpg" t="Include" />
+            <e p="75bf1ebb-3076-4274-b3ed-98f29e63c529.jpg" t="Include" />
+            <e p="8a27b28a-b16b-4675-91e8-f1615f5b78f7.jpg" t="Include" />
+            <e p="8ba27153-5dfd-4150-8a6e-dfc2613e627a.jpg" t="Include" />
+            <e p="e9cf1e02-4401-4486-a518-a1ce188ae98b.jpg" t="Include" />
+            <e p="fc9f61ef-e0f3-424f-83fe-825839ee8f51.jpg" t="Include" />
+          </e>
           <e p="images" t="Include">
             <e p="10x6.gif" t="Include" />
             <e p="3x1.gif" t="Include" />
