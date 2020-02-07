@@ -34,6 +34,7 @@
           <e p="Ad.cs" t="Include" />
           <e p="AdOptions.cs" t="Include" />
           <e p="CustomErrorCodes.cs" t="Include" />
+          <e p="FilterOption.cs" t="Include" />
           <e p="Genre.cs" t="Include" />
           <e p="User.cs" t="Include" />
           <e p="ViewModels" t="Include">
@@ -718,18 +719,25 @@
           <e p="BookImages" t="Include">
             <e p="1e236ee2-a614-42c5-be5d-34d28b380e77.jpg" t="Include" />
             <e p="2077345f-c0c6-4306-a74b-80580aff7ef2.jpg" t="Include" />
+            <e p="235c9e26-4c16-40cf-9a24-2bba8bf3120a.jpg" t="Include" />
             <e p="26e24995-f091-4160-a9e4-ae6712aee2e3.jpg" t="Include" />
             <e p="2989b88e-c293-4513-8101-15dc563f99e5.jpg" t="Include" />
             <e p="3058baeb-e210-4198-b9ef-d27b872df531.jpg" t="Include" />
             <e p="30fcfe5c-8693-4124-8ce9-3c7916f66bb4.jpg" t="Include" />
             <e p="3ee53478-c35c-4c6e-8c58-21d25c1d9323.jpg" t="Include" />
             <e p="470c9720-eda1-4705-a23d-fb381750ce5e.jpg" t="Include" />
+            <e p="53f89d6c-0ef4-4fcc-9a2c-17badc831245.jpg" t="Include" />
             <e p="66b0ecd0-7d90-468a-8959-a43dcf7a7ca4.jpg" t="Include" />
+            <e p="6fe3e1ab-42fb-4cf1-847f-c59713d5136b.jpg" t="Include" />
             <e p="72dce3f8-2b18-417b-945a-ce1a73ba90a2.jpg" t="Include" />
             <e p="75bf1ebb-3076-4274-b3ed-98f29e63c529.jpg" t="Include" />
             <e p="8a27b28a-b16b-4675-91e8-f1615f5b78f7.jpg" t="Include" />
             <e p="8ba27153-5dfd-4150-8a6e-dfc2613e627a.jpg" t="Include" />
+            <e p="b22909bc-f093-45c6-a9ef-21b66d0ded64.jpg" t="Include" />
+            <e p="cc9fe660-1300-4422-92ce-082e14c07cac.jpg" t="Include" />
+            <e p="ce99de6a-0a99-452b-8598-c3350f35bbca.png" t="Include" />
             <e p="e9cf1e02-4401-4486-a518-a1ce188ae98b.jpg" t="Include" />
+            <e p="fc3e6484-6391-4354-9d26-f99f581e54a9.jpg" t="Include" />
             <e p="fc9f61ef-e0f3-424f-83fe-825839ee8f51.jpg" t="Include" />
           </e>
           <e p="images" t="Include">

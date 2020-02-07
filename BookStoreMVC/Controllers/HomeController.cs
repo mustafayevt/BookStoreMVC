@@ -41,15 +41,20 @@ namespace BookStoreMVC.Controllers
             _userManager = userManager;
             _roleManager = roleManager;
         }
+
         // GET
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(int page = 1, FilterOption filterOption = FilterOption.NewToOld,int GenreId = 0)
         {
-            ViewData["Ads"] = _adService.Ads(page).Result;
-            var pageCount = (double)_appDbContext.Ads.Count() / 8;
+            var pageCount = (double) _appDbContext.Ads.Count() / 8;
             pageCount = pageCount % 2 != 0 ? pageCount + 1 : pageCount;
+            if (page < 1) page = 1;
+            else if (page > pageCount) page = (int) pageCount;
+            ViewData["Ads"] = _adService.Ads(page,filterOption).Result;
             ViewData["PageCount"] = (int) pageCount;
             ViewData["Currentpage"] = page;
             ViewData["AllAdsCount"] = _appDbContext.Ads.Count();
+            ViewData["FilterOption"] = filterOption;
+            ViewData["Genres"] = _appDbContext.Genres.ToList();
             return View();
         }
 

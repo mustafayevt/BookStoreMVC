@@ -5,6 +5,8 @@
     var pageCount = (int) ViewData["PageCount"];
     var currentPage = (int) ViewData["CurrentPage"];
     var allAdsCount = (int) ViewData["AllAdsCount"];
+    var filterOption = (FilterOption) ViewData["FilterOption"];
+    var genres = (List<Genre>) ViewData["Genres"];
 }
 
 <div class="search-row-wrapper" style="background-image: url(~/images/bg.jpg)">
@@ -16,60 +18,12 @@
                         <input class="form-control keyword" type="text" placeholder="e.g. Mobile Sale">
                     </div>
                     <div class="col-md-3">
-                        <select class="form-control selecter" name="category" id="search-category">
+                        <select class="form-control selecter" onchange="" name="category" id="search-category">pa
                             <option selected="selected" value="">All Categories</option>
-                            <option value="Vehicles" style="background-color:#E9E9E9;font-weight:bold;"
-                                    disabled="disabled">
-                                - Vehicles -
-                            </option>
-                            <option value="Cars">Cars</option>
-                            <option value="Commercial vehicles">Commercial vehicles</option>
-                            <option value="Motorcycles">Motorcycles</option>
-                            <option value="Motorcycle Equipment">Car &amp; Motorcycle Equipment</option>
-                            <option value="Boats">Boats</option>
-                            <option value="Vehicles">Other Vehicles</option>
-                            <option value="House" style="background-color:#E9E9E9;font-weight:bold;"
-                                    disabled="disabled">
-                                - House and Children -
-                            </option>
-                            <option value="Appliances">Appliances</option>
-                            <option value="Inside">Inside</option>
-                            <option value="Games">Games and Clothing</option>
-                            <option value="Garden">Garden</option>
-                            <option value="Multimedia" style="background-color:#E9E9E9;font-weight:bold;"
-                                    disabled="disabled">
-                                - Multimedia -
-                            </option>
-                            <option value="Telephony">Telephony</option>
-                            <option value="Image">Image and sound</option>
-                            <option value="Computers">Computers and Accessories</option>
-                            <option value="Video">Video games and consoles</option>
-                            <option value="Real" style="background-color:#E9E9E9;font-weight:bold;"
-                                    disabled="disabled">
-                                - Real Estate -
-                            </option>
-                            <option value="Apartment">Apartment</option>
-                            <option value="Home">Home</option>
-                            <option value="Vacation">Vacation Rentals</option>
-                            <option value="Commercial">Commercial offices and local</option>
-                            <option value="Grounds">Grounds</option>
-                            <option value="Houseshares">Houseshares</option>
-                            <option value="Other real estate">Other real estate</option>
-                            <option value="Services" style="background-color:#E9E9E9;font-weight:bold;"
-                                    disabled="disabled">
-                                - Services -
-                            </option>
-                            <option value="Jobs">Jobs</option>
-                            <option value="Job application">Job application</option>
-                            <option value="Services">Services</option>
-                            <option value="Price">Price</option>
-                            <option value="Business">Business and goodwill</option>
-                            <option value="Professional">Professional equipment</option>
-                            <option value="dropoff" style="background-color:#E9E9E9;font-weight:bold;"
-                                    disabled="disabled">
-                                - Extra -
-                            </option>
-                            <option value="Other">Other</option>
+                            @for (int i = 0; i < genres.Count(); i++)
+                            {
+                                <option selected="selected" value="@genres[i]">All Categories</option>
+                            }
                         </select>
                     </div>
                     <div class="col-md-3">
@@ -338,11 +292,13 @@
         </li>
     </ul>
     <div class="tab-filter">
-        <select title="sort by" class="selectpicker select-sort-by" data-style="btn-select"
+        <select title="sort by" onchange="window.location.href=this.value" class="selectpicker select-sort-by" data-style="btn-select"
                 data-width="auto">
-            <option>Sort by</option>
-            <option>Price: Low to High</option>
-            <option>Price: High to Low</option>
+            <option>Sırala</option>
+            <option value="/?page=@currentPage&filterOption=@FilterOption.LowToHigh">Qiymət: Ucuzdan Bahaya</option>
+            <option value="/?page=@currentPage&filterOption=@FilterOption.HighToLow">Qiymət: Bahadan Ucuza</option>
+            <option value="/?page=@currentPage&filterOption=@FilterOption.NewToOld">Tarix: Yenidən Köhnəyə</option>
+            <option value="/?page=@currentPage&filterOption=@FilterOption.OldToNew">Tarix: Köhnədən Yeniyə</option>
         </select>
     </div>
 
@@ -1217,14 +1173,17 @@
 <div class="pagination-bar text-center">
     <nav aria-label="Page navigation " class="d-inline-b">
         <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" asp-action="Index" asp-route-page="@(currentPage - 1)">Previous</a>
+            </li>
             @for (int i = 0; i < pageCount; i++)
             {
-                <li class="page-item @(i+1 == currentPage ? "active":"")">
-                    <a class="page-link" asp-action="Index" asp-route-page="@(i+1)">@(i+1)</a>
+                <li class="page-item @(i + 1 == currentPage ? "active" : "")">
+                    <a class="page-link" asp-action="Index" asp-route-filterOption="@filterOption" asp-route-page="@(i + 1)">@(i + 1)</a>
                 </li>
             }
             <li class="page-item">
-                <a class="page-link" href="#">Next</a>
+                <a class="page-link" asp-action="Index" asp-route-filterOption="@filterOption" asp-route-page="@(currentPage + 1)">Next</a>
             </li>
         </ul>
     </nav>

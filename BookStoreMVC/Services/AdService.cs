@@ -107,9 +107,33 @@ namespace BookStoreMVC.Services
             }
         }
 
-        public async Task<List<AdViewModel>> Ads(int page = 1, int res = 8)
+        public async Task<List<AdViewModel>> Ads(int page = 1, FilterOption filterOption = FilterOption.NewToOld, int res = 8)
         {
-            var ads = _appDbContext.Ads.Skip((page - 1) * res).Take(res);
+            List<Ad> allAds = null;
+            switch (filterOption)
+            {
+                case FilterOption.HighToLow:
+                {
+                    allAds = _appDbContext.Ads.OrderByDescending(x => x.Price).ToList();
+                    break;
+                }
+                case FilterOption.LowToHigh:
+                {
+                    allAds = _appDbContext.Ads.OrderBy(x => x.Price).ToList();
+                    break;
+                }
+                case FilterOption.OldToNew:
+                {
+                    allAds = _appDbContext.Ads.OrderBy(x => x.UploadTime).ToList();
+                    break;
+                }
+                case FilterOption.NewToOld:
+                {
+                    allAds = _appDbContext.Ads.OrderByDescending(x => x.UploadTime).ToList();
+                    break;
+                }
+            }
+            var ads = allAds.Skip((page - 1) * res).Take(res);
             var result = ads.Select(x =>
                 new AdViewModel()
                 {
