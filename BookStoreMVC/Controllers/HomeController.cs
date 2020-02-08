@@ -49,12 +49,13 @@ namespace BookStoreMVC.Controllers
             pageCount = pageCount % 2 != 0 ? pageCount + 1 : pageCount;
             if (page < 1) page = 1;
             else if (page > pageCount) page = (int) pageCount;
-            ViewData["Ads"] = _adService.Ads(page,filterOption).Result;
+            ViewData["Ads"] = _adService.Ads(page,filterOption,GenreId:GenreId).Result;
             ViewData["PageCount"] = (int) pageCount;
             ViewData["Currentpage"] = page;
             ViewData["AllAdsCount"] = _appDbContext.Ads.Count();
             ViewData["FilterOption"] = filterOption;
             ViewData["Genres"] = _appDbContext.Genres.ToList();
+            ViewData["GenreId"] = GenreId;
             return View();
         }
 

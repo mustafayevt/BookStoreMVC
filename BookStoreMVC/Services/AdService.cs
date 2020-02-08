@@ -107,7 +107,7 @@ namespace BookStoreMVC.Services
             }
         }
 
-        public async Task<List<AdViewModel>> Ads(int page = 1, FilterOption filterOption = FilterOption.NewToOld, int res = 8)
+        public async Task<List<AdViewModel>> Ads(int page = 1, FilterOption filterOption = FilterOption.NewToOld, int res = 8,int GenreId = 0)
         {
             List<Ad> allAds = null;
             switch (filterOption)
@@ -132,6 +132,11 @@ namespace BookStoreMVC.Services
                     allAds = _appDbContext.Ads.OrderByDescending(x => x.UploadTime).ToList();
                     break;
                 }
+            }
+
+            if (GenreId != 0)
+            {
+                allAds = allAds.Where(x => x.GenresIds.Contains(GenreId)).ToList();
             }
             var ads = allAds.Skip((page - 1) * res).Take(res);
             var result = ads.Select(x =>
