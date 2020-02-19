@@ -54,7 +54,7 @@ namespace BookStoreMVC
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+ 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAuthentication(CookieAuthenticationDefaults.LoginPath)
                 .AddCookie(opt => { opt.LoginPath = new PathString("/Account/Login"); })

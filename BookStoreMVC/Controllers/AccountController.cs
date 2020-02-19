@@ -82,7 +82,6 @@ namespace BookStoreMVC.Controllers
                 }
             }
             
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
         
@@ -127,6 +126,20 @@ namespace BookStoreMVC.Controllers
         {
                 await _signInManager.SignOutAsync();
                 return RedirectToAction("Login","Account");
+            
+        }
+        
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [Route("ExternalUrl")]
+        public async Task<IActionResult> ExternalUrl()
+        {
+            // return Redirect("/");
+            
+            var redirectUrl = Url.Action("Index", "Home", new {returnUrl = "/"});
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties("google", redirectUrl);
+            return new ChallengeResult("google",properties);
             
         }
     }

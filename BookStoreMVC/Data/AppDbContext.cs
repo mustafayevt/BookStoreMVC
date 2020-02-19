@@ -18,7 +18,6 @@ namespace BookStoreMVC.Data
         public DbSet<Ad> Ads { get; set; }
 
 
-
         private void Init()
         {
             if (!Genres.Any())

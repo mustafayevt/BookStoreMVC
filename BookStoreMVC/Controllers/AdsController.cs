@@ -93,5 +93,14 @@ namespace BookStoreMVC.Controllers
                 return View(model);
             }
         }
+
+        [HttpGet]
+        [Route("AdDetail")]
+        public async Task<IActionResult> AdDetail(int id)
+        {
+            var ad = await _adService.GetAd(id);
+            ViewData["Ad"] = ad;
+            return View();
+        }
     }
 }

@@ -142,6 +142,7 @@ namespace BookStoreMVC.Services
             var result = ads.Select(x =>
                 new AdViewModel()
                 {
+                    Id = x.Id,
                     Author = x.Author,
                     Condition = x.Conditions,
                     Description = x.Description,
@@ -155,6 +156,37 @@ namespace BookStoreMVC.Services
                 }
             ).ToList();
             return result.ToList();
+        }
+
+        public async Task<AdViewModel> GetAd(int id)
+        {
+            try
+            {
+                var ad = _appDbContext.Ads.FirstOrDefault(x => x.Id == id);
+                if (ad != null)
+                {
+                    var adViewModel = new AdViewModel()
+                    {
+                        Id = ad.Id,
+                        Author = ad.Author,
+                        Condition = ad.Conditions,
+                        Description = ad.Description,
+                        Genres = new List<Genre>(_appDbContext.Genres.Where(y => ad.GenresIds.Contains(y.Id))),
+                        Name = ad.Name,
+                        Price = ad.Price,
+                        User = ad.User,
+                        ImagePaths = ad.ImagePaths,
+                        SellOption = ad.SellOption,
+                        UploadTime = ad.UploadTime.ToShortDateString()
+                    };
+                    return adViewModel;
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
     }
 }

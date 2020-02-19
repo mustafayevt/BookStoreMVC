@@ -357,7 +357,7 @@
                                     class="fa fa-camera">
                                 </i> @ad.ImagePaths.Count()
                             </span>
-                            <a href="ads-details.html">
+                            <a asp-controller="Ads" asp-action="AdDetail" asp-route-id="@ad.Id">
                                 <img
                                     class="thumbnail no-margin" src="@ad.ImagePaths[0]"
                                     alt="img">
@@ -368,7 +368,7 @@
                     <div class="col-sm-7 add-desc-box">
                         <div class="ads-details">
                             <h5 class="add-title">
-                                <a href="ads-details.html">@ad.Name</a>
+                                <a asp-controller="Ads" asp-action="AdDetail" asp-route-id="@ad.Id">@ad.Name</a>
                             </h5>
                             <span class="info-row">
                                 <span class="add-type business-ads tooltipHere"

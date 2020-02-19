@@ -1,76 +1,87 @@
 ﻿@model BookStoreMVC.Models.ViewModels.LoginViewModel
 @{
-    ViewBag.Title = "Xoş Gəlmişsiniz";                                                
+    ViewBag.Title = "Xoş Gəlmişsiniz";
     Layout = "_Layout";
 }
 
 <div class="main-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 login-box">
-                    <div class="card card-default">
-                        <div class="panel-intro text-center">
-                            <h2 class="logo-title">
-                                <!-- Original Logo will be placed here  -->
-                                <span class="logo-icon"><i
-                                        class="icon icon-search-1 ln-shadow-logo shape-0"></i> </span> BOOT<span>CLASSIFIED </span>
-                            </h2>
-                        </div>
-                        <div class="card-body">
-                            <form role="form" asp-action="Login">
-                                <div asp-validation-summary="All" class="text-danger"></div>
-                                <div class="form-group">
-                                    <label for="sender-email" class="control-label">Email</label>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 login-box">
+                <div class="card card-default">
+                    <div class="panel-intro text-center">
+                        <h2 class="logo-title">
+                            <!-- Original Logo will be placed here  -->
+                            <span class="logo-icon">
+                                <i
+                                    class="icon icon-search-1 ln-shadow-logo shape-0">
+                                </i>
+                            </span> BOOT<span>CLASSIFIED </span>
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form role="form" asp-action="Login">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label for="sender-email" class="control-label">Email</label>
 
-                                    <div class="input-icon"><i class="icon-user fa"></i>
-                                        <input id="sender-email" type="text" placeholder="Email"
-                                               class="form-control email" asp-for="Email">
-                                    </div>
+                                <div class="input-icon">
+                                    <i class="icon-user fa"></i>
+                                    <input id="sender-email" type="text" placeholder="Email"
+                                           class="form-control email" asp-for="Email">
                                 </div>
-                                <div class="form-group">
-                                    <label for="user-pass" class="control-label">Password:</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="user-pass" class="control-label">Password:</label>
 
-                                    <div class="input-icon"><i class="icon-lock fa"></i>
-                                        <input type="password" class="form-control" placeholder="Password"
-                                               id="user-pass" asp-for="Password">
-                                    </div>
+                                <div class="input-icon">
+                                    <i class="icon-lock fa"></i>
+                                    <input type="password" class="form-control" placeholder="Password"
+                                           id="user-pass" asp-for="Password">
                                 </div>
-<label style="user-select: none;"><input asp-for="RememberMe"/>  Şifrəni Yadda Saxla</label>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary  btn-block">Submit</button>
-                                </div>
-
-                                <h3 class="or-divider"><span>or</span></h3>
-
-                                <div class="button-wrap">
-                                    <a href="#" class="btn-social btn-fbk"><i class="fab fa-facebook-f"></i>facebook<br>connect</a>
-                                    <a href="#" class="btn-social btn-ggl"><i class="fab fa-google-plus-g"></i>google<br>connect</a>
-                                </div>
-
-                            </form>
-                        </div>
-                        <div class="card-footer">
-
-                            <div class="checkbox pull-left">
-                                <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-                                    <input type="checkbox" class="custom-control-input" asp-for="RememberMe">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description"> Keep me logged in</span>
-                                </label>
+                            </div>
+                            <label style="user-select: none;"><input asp-for="RememberMe"/> Şifrəni Yadda Saxla</label>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary  btn-block">Submit</button>
                             </div>
 
+                            <h3 class="or-divider">
+                                <span>or</span>
+                            </h3>
 
-                            <p class="text-center pull-right"><a href="forgot-password.html"> Lost your password? </a>
-                            </p>
-
-                            <div style=" clear:both"></div>
+                        </form>
+                        <div class="button-wrap">
+                            @* <a href="#" class="btn-social btn-fbk"><i class="fab fa-facebook-f"></i>facebook<br>connect</a> *@
+                            <a class="btn-social btn-ggl" asp-controller="Account" asp-action="ExternalUrl"><i class="fab fa-google-plus-g"></i>google<br>connect</a>
                         </div>
                     </div>
-                    <div class="login-box-btm text-center">
-                        <p> Hesabın Yoxdur?<br>
-                            <a asp-controller="Account" asp-action="Register"><strong>Bizə Qoşul</strong> </a></p>
+                    <div class="card-footer">
+
+                        <div class="checkbox pull-left">
+                            <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                                <input type="checkbox" class="custom-control-input" asp-for="RememberMe">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description"> Keep me logged in</span>
+                            </label>
+                        </div>
+
+
+                        <p class="text-center pull-right">
+                            <a href="forgot-password.html"> Lost your password? </a>
+                        </p>
+
+                        <div style=" clear:both"></div>
                     </div>
+                </div>
+                <div class="login-box-btm text-center">
+                    <p>
+                        Hesabın Yoxdur?<br>
+                        <a asp-controller="Account" asp-action="Register">
+                            <strong>Bizə Qoşul</strong>
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+</div>
