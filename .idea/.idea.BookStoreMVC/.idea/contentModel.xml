@@ -718,7 +718,10 @@
               </e>
             </e>
           </e>
-          <e p="BookImages" t="Include" />
+          <e p="BookImages" t="Include">
+            <e p="73be5c05-a80c-4611-ae53-4aa1545bd459.jpg" t="Include" />
+            <e p="fd055a2b-efef-4ec0-a3b5-0d7b3c582024.jpg" t="Include" />
+          </e>
           <e p="images" t="Include">
             <e p="10x6.gif" t="Include" />
             <e p="3x1.gif" t="Include" />
