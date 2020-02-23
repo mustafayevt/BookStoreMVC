@@ -60,6 +60,9 @@
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="BookBazaarMVC - Web Deploy.pubxml" t="Include" />
+          </e>
         </e>
         <e p="Services" t="Include">
           <e p="AccountSerevice.cs" t="Include" />

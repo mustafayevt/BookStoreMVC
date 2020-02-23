@@ -71,24 +71,25 @@ namespace BookStoreMVC
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            {
-                var context = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
-                context.Database.EnsureCreated();
-            }
+            // using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            // {
+            //     var context = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
+            //     context.Database.EnsureCreated();
+            // }
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
             app.UseAuthentication();
-            app.UseStatusCodePages();
+            //app.UseStatusCodePages();
+            app.UseStatusCodePagesWithRedirects("/Error");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
@@ -97,7 +98,6 @@ namespace BookStoreMVC
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-                routes.MapSpaFallbackRoute("404", new {controller = "Home", action = "Error"});
             });
         }
     }
