@@ -1,11 +1,13 @@
 ﻿using System.Linq;
 using BookStoreMVC.Data;
+using BookStoreMVC.Helper;
 using BookStoreMVC.Models;
 using BookStoreMVC.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite.Internal.IISUrlRewrite;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Logging;
 
@@ -45,8 +47,8 @@ namespace BookStoreMVC.Controllers
         // GET
         public IActionResult Index(int page = 1, FilterOption filterOption = FilterOption.NewToOld,int GenreId = 0)
         {
-            var pageCount = (double) _appDbContext.Ads.Count() / 8;
-            pageCount = pageCount % 2 != 0 ? pageCount + 1 : pageCount;
+            var pageCount = (double) _adService.GetAds(page,filterOption,GenreId:GenreId).Result.Count() / 8;
+            pageCount = pageCount % 1 != 0 ? pageCount + 1 : pageCount;
             if (page < 1) page = 1;
             else if (page > pageCount) page = (int) pageCount;
             ViewData["Ads"] = _adService.Ads(page,filterOption,GenreId:GenreId).Result;

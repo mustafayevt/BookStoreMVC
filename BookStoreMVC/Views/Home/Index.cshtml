@@ -104,7 +104,7 @@
         <div class="sidebar-modern-inner">
             <div class="block-title has-arrow sidebar-header">
                 <h5>
-                    <a asp-action="Index" asp-route-page="@currentPage" asp-route-filterOption="@filterOption" asp-route-GenreId="@genreId">Bütün Kateqoriyalar</a>
+                    <a asp-action="Index" asp-route-page="@currentPage" asp-route-filterOption="@filterOption" asp-route-GenreId="0">Bütün Kateqoriyalar</a>
                 </h5>
             </div>
             <div class="block-content categories-list  list-filter ">
@@ -120,102 +120,31 @@
                     }
                 </ul>
             </div> <!--/.categories-list-->
-
-            <div class="block-title has-arrow ">
-                <h5>
-                    <a href="#">Location</a>
-                </h5>
-            </div>
-            <div class="block-content locations-list  list-filter ">
-                <ul class="browse-list list-unstyled long-list">
-                    <li>
-                        <a href="sub-category-sub-location.html"> Atlanta </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html"> Wichita </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html"> Anchorage </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html"> Dallas </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html">New York </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html"> Santa Ana/Anaheim </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html"> Miami </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html"> Virginia Beach </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html"> San Diego </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html"> Boston </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html"> Houston </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html">Salt Lake City </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html"> Other Locations </a>
-                    </li>
-                </ul>
-            </div>
             <!--/.locations-list-->
 
-            <div class="block-title has-arrow">
-                <h5>
-                    <a href="#">Price range</a>
-                </h5>
-            </div>
-            <div class="block-content categories-list  list-filter ">
-
-                <form role="form" class="form-inline ">
-                    <div class="form-group col-lg-4 col-md-12 no-padding">
-                        <input type="text" placeholder="$ 2000 " id="minPrice" class="form-control">
-                    </div>
-                    <div class="form-group col-lg-1 col-md-12 no-padding text-center hidden-md"> -</div>
-                    <div class="form-group col-lg-4 col-md-12 no-padding">
-                        <input type="text" placeholder="$ 3000 " id="maxPrice" class="form-control">
-                    </div>
-                    <div class="form-group col-lg-3 col-md-12 no-padding">
-                        <button class="btn btn-default pull-right btn-block-md" type="submit">
-                            GO
-                        </button>
-                    </div>
-                </form>
-                <div style="clear:both"></div>
-            </div>
-            <!--/.list-filter-->
-            <div class="block-title has-arrow">
-                <h5>
-                    <a href="#">Seller </a>
-                </h5>
-            </div>
-            <div class="block-content categories-list  list-filter ">
-                <ul class="browse-list list-unstyled ">
-                    <li>
-                        <a href="sub-category-sub-location.html">
-                            <strong>Bütün Elanlar</strong> <span class="count">@allAdsCount</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html">Business <span class="count">28,705</span></a>
-                    </li>
-                    <li>
-                        <a href="sub-category-sub-location.html">Private <span class="count">18,705</span></a>
-                    </li>
-                </ul>
-            </div>
-            <!--/.list-filter-->
+            @* <div class="block-title has-arrow"> *@
+            @*     <h5> *@
+            @*         <a href="#">Price range</a> *@
+            @*     </h5> *@
+            @* </div> *@
+            @* <div class="block-content categories-list  list-filter "> *@
+            @* *@
+            @*     <form role="form" class="form-inline "> *@
+            @*         <div class="form-group col-lg-4 col-md-12 no-padding"> *@
+            @*             <input type="text" placeholder="$ 2000 " id="minPrice" class="form-control"> *@
+            @*         </div> *@
+            @*         <div class="form-group col-lg-1 col-md-12 no-padding text-center hidden-md"> -</div> *@
+            @*         <div class="form-group col-lg-4 col-md-12 no-padding"> *@
+            @*             <input type="text" placeholder="$ 3000 " id="maxPrice" class="form-control"> *@
+            @*         </div> *@
+            @*         <div class="form-group col-lg-3 col-md-12 no-padding"> *@
+            @*             <button class="btn btn-default pull-right btn-block-md" type="submit"> *@
+            @*                 GO *@
+            @*             </button> *@
+            @*         </div> *@
+            @*     </form> *@
+            @*     <div style="clear:both"></div> *@
+            @* </div> *@
 
             <div class="block-title has-arrow">
                 <h5>
@@ -231,7 +160,7 @@
                         <a href="sub-category-sub-location.html">Used <span class="count">28,705</span></a>
                     </li>
                     <li>
-                        <a href="sub-category-sub-location.html">None </a>
+                        <a asp-action="Index" >Hamısı - @allAdsCount </a>
                     </li>
                 </ul>
             </div>

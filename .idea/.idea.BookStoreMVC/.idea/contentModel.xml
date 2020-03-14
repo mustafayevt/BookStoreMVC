@@ -722,7 +722,10 @@
             </e>
           </e>
           <e p="BookImages" t="Include">
+            <e p="268e7d90-0fb4-4650-97d4-5e1547a22c60.jpg" t="Include" />
+            <e p="5346de7b-c230-49e0-a75e-016d22e05b07.jpg" t="Include" />
             <e p="73be5c05-a80c-4611-ae53-4aa1545bd459.jpg" t="Include" />
+            <e p="8940c72b-28ee-47ea-962d-a87f4eaa25be.jpg" t="Include" />
             <e p="fd055a2b-efef-4ec0-a3b5-0d7b3c582024.jpg" t="Include" />
           </e>
           <e p="images" t="Include">
